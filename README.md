@@ -68,6 +68,8 @@ or
 
 ALTERNATIVALLY - Option 2
 
+> pip freeze > requirements.txt
+>
 > pip list --format=freeze > requirements.txt
 
 INSTALL "requirements.txt" FILE IN A PROJECT
