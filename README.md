@@ -129,6 +129,7 @@ $ ls
 ### After modifying script python build again
 
 $ docker build -t python-fastapi .
+
 $ docker run -p 8000:8000 python-fastapi
 
 Docker Tutorial For Beginners - How To Containerize Python Applications
