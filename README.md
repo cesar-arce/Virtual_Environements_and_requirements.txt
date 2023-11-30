@@ -66,7 +66,7 @@ or
 > 
 > pipreqs --encoding=utf8 C:\Users\root\Desktop\resumes
 
-ALTERNATIVALLY - Option 2
+ALTERNATIVELY - Option 2
 
 > pip freeze > requirements.txt
 >
