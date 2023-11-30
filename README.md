@@ -81,21 +81,21 @@ INSTALL "requirements.txt" FILE IN A PROJECT
 DOCKERS --> Dokerfile (in the root) same place as requirements.txt
 
 # Dockerfile, Image, Container
+<pre>
+FROM python:3.8                 < image >
 
-FROM python:3.8
+WORKDIR /fastapi-app            < path to working directory >
 
-WORKDIR /fastapi-app
+ADD main.py .  (Source)         ["< source >", "< destination >"]
 
-ADD main.py .  (Source)
+COPY requirements.txt .         (Libraries) ["< source >", "< destination >"]
 
-COPY requirements.txt .   (Libraries)
+RUN pip install -r requirements.txt  (or pip install request others....)  < command > ["< executable >", "< param 1 >", "< param 2 >"]
 
-RUN pip install -r requirements.txt  (or pip install request others....)
+COPY ./app ./app                 ["< source >", "< destination >"]
 
-COPY ./app ./app
-
-CMD ["python", "./app/main.py"]
-
+CMD ["python", "./app/main.py"]  < command >  ["< executable >", "< param >"]
+</pre>
 --------------------------------------------------------
 
 Terminal:
