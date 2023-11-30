@@ -82,19 +82,24 @@ DOCKERS --> Dokerfile (in the root) same place as requirements.txt
 
 # Dockerfile, Image, Container
 <pre>
-FROM python:3.8                 < image >
+FROM python:3.8                      < image >
+FROM python
 
-WORKDIR /fastapi-app            < path to working directory >
+WORKDIR /fastapi-app                 < path to working directory >
+WORKDIR c:\\windows\
 
-ADD main.py .                   (Source) ["< source >", "< destination >"]
+ADD main.py .                        < source > < destination > 
+ADD test1.txt c:\temp\               ["< source >", "< destination >"] -> destination includes white space
 
-COPY requirements.txt .         (Libraries) ["< source >", "< destination >"]
+COPY requirements.txt .               (Libraries)
+COPY ./app ./app                      < source > < destination >  
+COPY config* c:/temp/                 ["< source >", "< destination >"] -> destination includes white space
+                                        
+RUN pip install -r requirements.txt   < command > ["< executable >", "< param 1 >", "< param 2 >"] 
+RUN pip install request pandas others....
 
-RUN pip install -r requirements.txt  (or pip install request others....)  < command > ["< executable >", "< param 1 >", "< param 2 >"]
-
-COPY ./app ./app                 ["< source >", "< destination >"]
-
-CMD ["python", "./app/main.py"]  < command >  ["< executable >", "< param >"]
+CMD ["python", "./app/main.py"]       < command >  ["< executable >", "< param >"]
+CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 </pre>
 --------------------------------------------------------
 
