@@ -86,7 +86,7 @@ FROM python:3.8                 < image >
 
 WORKDIR /fastapi-app            < path to working directory >
 
-ADD main.py .  (Source)         ["< source >", "< destination >"]
+ADD main.py .                   (Source) ["< source >", "< destination >"]
 
 COPY requirements.txt .         (Libraries) ["< source >", "< destination >"]
 
