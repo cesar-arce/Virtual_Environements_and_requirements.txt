@@ -103,11 +103,13 @@ $ docker -v
 ### Building the image
 
 $ docker -t python-imdb .
+
 $ docker run python-imdb
 
 ### After modify python script build again
 
 $ docker build -t python-imdb .
+
 $ docker run -t -i python-imdb
 
 ### Changing to the CMD in the Container
