@@ -104,7 +104,9 @@ CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 Terminal:
 
-$ docker -v
+$ docker version
+
+$ docker -V
 
 ### Building the image
 
