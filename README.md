@@ -108,6 +108,8 @@ $ docker version
 
 $ docker -V
 
+$ docker info
+
 ### Building the image
 
 $ docker -t python-imdb .
