@@ -1,8 +1,8 @@
 # Virtual Environements and requirements.txt
+# Step1 - Working in VENV (create, activate, deactivate)
 ***********************************************************
-
 CREATE A VIRTUAL ENVIRONMENT VENV
-------------------------------------------------------
+
 https://docs.python.org/3/library/venv.html
 https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/
 
@@ -48,10 +48,9 @@ You can also use:
 > 
 > conda deactivate
 
---------------------------------------------------------
 
-## CREATE YOUR "requirements.txt" FILE 
-
+# Step 2 -Create your "requirements.txt" file 
+***********************************************************
 > pip list
 
 TO CREATE FILE - Option 1
@@ -76,11 +75,11 @@ INSTALL "requirements.txt" FILE IN A PROJECT
 
 > pip install -r "requirements.txt"
 
---------------------------------------------------------
 
+# Step 3 - Working with Dockers (Dockerfile, Image, Container)
+***********************************************************
 DOCKERS --> Dokerfile (in the root) same place as requirements.txt
 
-# Dockerfile, Image, Container
 <pre>
 FROM python:3.8                      < image >
 FROM python
@@ -113,7 +112,7 @@ $ docker -t python-imdb .
 
 $ docker run python-imdb
 
-### After modify python script build again
+### After modify your python script build again
 
 $ docker build -t python-imdb .
 
@@ -126,7 +125,7 @@ $ docker exec -it 14b15c25c /bin/sh
 $ ls
 
 
-### After modifying script python build again
+### After modifying your python script build again
 
 $ docker build -t python-fastapi .
 
