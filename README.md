@@ -106,9 +106,11 @@ Terminal:
 
 $ docker version
 
-$ docker -V
+$ docker -v  (only Docker version)
 
 $ docker info
+
+$ docker --help
 
 ### Building the image
 
