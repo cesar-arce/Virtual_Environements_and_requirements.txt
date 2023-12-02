@@ -258,10 +258,9 @@ $ docker container run -d --name < container_name > --network < network_name > n
 
 $ docker container run -d --name new_nginx --network my_app_net nginx
 
--------
-$ docker network connect < network_name > < container_name > (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
+## Connect a container to a network when it starts
 
-Connect a container to a network when it starts
+$ docker network connect < network_name > < container_name > (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
 
 $ docker network connect my_app_net db
 
