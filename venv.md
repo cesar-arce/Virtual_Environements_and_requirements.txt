@@ -2,12 +2,13 @@
 ## Create a venv
 To create a virtual environment, go to the root of your project and run
 
-``python -m venv venv``
+``python -m venv <venv_name>``
 
 It will create a virtual environment called venv
 
 ## Activate venv
 ``.\venv\Scripts\activate``
+``conda activate <venv_name>``
 
 ## Intall packages
 ``pip install jupyter matplotlib numpy pandas scipy scikit-learn``
@@ -18,9 +19,11 @@ or
 
 ## Create requirements.txt
 ``pip freeze > requirements.txt``
+``pip list --format=freeze > requirements.txt``
 
 ## Deactivate venv
 ``deactivate``
+``conda deactivate``
 
 ## Install packages from requirements.txt
 ``pip install -r requirements.txt``
