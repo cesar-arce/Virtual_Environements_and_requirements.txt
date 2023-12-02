@@ -135,7 +135,11 @@ $ ls
 
 $ docker build -t python-fastapi .
 
+
 $ docker run -p 8000:8000 python-fastapi
 
 Docker Tutorial For Beginners - How To Containerize Python Applications
 https://www.youtube.com/watch?v=bi0cKgmRuiA&t=695s
+
+
+![Token in terminal](./cheat-sheet-v2.pdf)
