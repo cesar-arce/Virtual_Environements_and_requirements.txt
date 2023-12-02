@@ -261,7 +261,7 @@ $ docker network connect < network_name > < name_container > (Connect "Id" Netwo
 
 Connect a container to a network when it starts
 $ docker network connect my_app_net db
-(-------)
+-------
 
 $ docker network inspect < network_name >
 
