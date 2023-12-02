@@ -102,15 +102,27 @@ CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 </pre>
 --------------------------------------------------------
 
+## Getting Hellp
 Terminal:
 
-$ docker version
+Display Docker version with docker --version
+
+$ docker --version
 
 $ docker -v  (only Docker version)
 
+Display Docker system info with docker info
+
 $ docker info
 
+Get help on Docker with docker --help
+
 $ docker --help
+
+Get help on Docker command usage with docker {command} --help
+
+$ docker run --help
+
 
 ### Building the image
 
