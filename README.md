@@ -166,6 +166,10 @@ Build an Image from a Dockerfile
 
 $ docker build -t <image_name> 
 
+Build an image from the Dockerfile in the current directory and tag the image
+
+$ docker build -t myapp:1.0 .
+
 Build an image with docker build {path}
 
 $ docker build .
@@ -210,6 +214,10 @@ Delete an image with docker rmi {image}
 $ docker rmi <image_name>
 
 $ docker rmi rocker/r-base
+
+Delete an image from the local image store
+
+$ docker rmi alpine:3.4
 
 Remove all unused images
 
@@ -314,6 +322,42 @@ $ docker run --name red1 redis --> Run redis, naming the container as red1
 Run an image as a user with docker run --user {username}
 
 $ docker run --user doctordocker mongo
+
+$ docker run
+
+- --rm remove container automatically after it exits
+- 
+- -it connect the container to terminal
+- 
+- --name web name the container
+- 
+- -p 5000:80 expose port 5000 externally and map to port 80
+- 
+- -v ~/dev:/code create a host mapped volume inside the container
+- 
+- alpine:3.4 the image from which the container is instantiated
+- 
+- /bin/sh the command to run inside the container
+
+Stop a running container through SIGTERM
+
+$ docker stop web
+
+Stop a running container through SIGKILL
+
+$ docker kill web
+
+Delete all running and stopped containers 
+
+$ docker rm -f $(docker ps -aq)
+
+Create a new bash process inside the container and connect it to the terminal
+
+$ docker exec -it web bash
+
+Print the last 100 lines of a container’s logs
+
+$ docker logs --tail 100 web
 
 ## Creating a Network
 
