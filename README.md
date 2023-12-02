@@ -1,5 +1,5 @@
 # Virtual Environements and requirements.txt
-# Step1 - Working in VENV (create, activate, deactivate)
+# Step 1 - Working in VENV (create, activate, deactivate)
 ***********************************************************
 CREATE A VIRTUAL ENVIRONMENT VENV
 
