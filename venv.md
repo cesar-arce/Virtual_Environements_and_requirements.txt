@@ -20,6 +20,7 @@ or
 
 ## Create requirements.txt
 ``pip freeze > requirements.txt``
+
 ``pip list --format=freeze > requirements.txt``
 
 ## Deactivate venv
