@@ -142,4 +142,4 @@ Docker Tutorial For Beginners - How To Containerize Python Applications
 https://www.youtube.com/watch?v=bi0cKgmRuiA&t=695s
 
 
-![Alt Text]( https://github.com/cesar-arce/Virtual_Environements_and_requirements.txt/blob/main/cheat-sheet-v2.pdf )
+![Cheat Sheet]( https://github.com/cesar-arce/Virtual_Environements_and_requirements.txt/blob/main/cheat-sheet-v2.pdf )
