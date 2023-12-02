@@ -76,7 +76,7 @@ INSTALL "requirements.txt" FILE IN A PROJECT
 > pip install -r "requirements.txt"
 
 
-# Step 3 - Working with Dockers (Dockerfile, Image, Container)
+# Step 3 - Working with Dockers (Dockerfile, Images, Containers, and Networks)
 
 Docker provides the ability to package and run an application in a loosely isolated environment called a container.
 The isolation and security allows you to run many containers simultaneously on a given host. 
