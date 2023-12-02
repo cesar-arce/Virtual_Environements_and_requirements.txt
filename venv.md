@@ -3,6 +3,7 @@
 To create a virtual environment, go to the root of your project and run
 
 ``python -m venv <venv_name>``
+``conda create -n <venv_name> python=3.9``
 
 It will create a virtual environment called venv
 
