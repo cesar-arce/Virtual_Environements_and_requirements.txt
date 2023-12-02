@@ -278,7 +278,7 @@ $ docker network disconnect bridge proxy
 
 $ docker network ls ( active only )
 
-$ docker network ls -a  (-all = active+stopped)
+$ docker network ls -a  (--all = active+stopped)
 
 ### After modify your python script build again
 
