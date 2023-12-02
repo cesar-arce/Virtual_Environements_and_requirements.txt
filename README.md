@@ -142,7 +142,7 @@ Get help on Docker command usage with docker {command} --help
 
 $ docker run --help
 
-- (-t = --tty, -i = --interactive, -d = --detashed, -e = --env, -p = --publish, -rm = --remove, -a = -all)
+- (-t = --tty, -i = --interactive, -d = --detashed, -e = --env, -p = --publish, -rm = --remove, -a = --all)
 
 ## Building Images
 
