@@ -26,6 +26,7 @@ or
 
 ## Deactivate venv
 ``deactivate``
+
 ``conda deactivate``
 
 ## Install packages from requirements.txt
