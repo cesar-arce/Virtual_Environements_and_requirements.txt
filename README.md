@@ -142,4 +142,4 @@ Docker Tutorial For Beginners - How To Containerize Python Applications
 https://www.youtube.com/watch?v=bi0cKgmRuiA&t=695s
 
 
-![Token in terminal](cheat-sheet-v2.pdf)
+!(cheat-sheet-v2.pdf)
