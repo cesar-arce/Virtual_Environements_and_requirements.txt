@@ -24,3 +24,7 @@ or
 
 ## Install packages from requirements.txt
 ``pip install -r requirements.txt``
+
+
+
+![Python venv Cheat Sheet](./python-virtual-environments.pdf)
