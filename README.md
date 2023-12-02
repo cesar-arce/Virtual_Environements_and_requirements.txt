@@ -101,8 +101,9 @@ CMD ["python", "./app/main.py"]       < command >  ["< executable >", "< param >
 CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 </pre>
 --------------------------------------------------------
+# RUN = pull + create + star
 
-## Getting Hellp
+## Getting Help
 Terminal:
 
 Display Docker version with docker --version
@@ -123,12 +124,104 @@ Get help on Docker command usage with docker {command} --help
 
 $ docker run --help
 
+## Building Images
 
-### Building the image
+Build an image with docker build {path}
 
-$ docker -t python-imdb .
+$ docker build .
 
-$ docker run python-imdb
+Build a tagged image with docker build --tag {name:tag} {path}
+
+$ docker build --tag myimage:2023-edition .
+
+Build an image without using the cache docker build -no-cache {path}
+
+$ docker build --no-cache .
+
+## Image Management
+
+List all local images with docker images
+
+$ docker images
+
+Show Docker disk usage with docker system df
+
+$ docker system df
+
+Show image creation steps from intermediate layers with docker history {image}
+
+$ docker history alpine
+
+Save an image to a file with docker save --output {filename}
+Usually combined with a compression tool like gzip
+
+$ docker save julia | gzip > julia.tar.gz
+
+Load an image from a file with docker load --input {filename}
+
+$ docker load --input julia.tar.gz
+
+Delete an image with docker rmi {image}
+
+$ docker -rmi rocker/r-base
+
+
+## Inspecting Containers
+
+List all running containers with docker ps
+
+$ docker container ls
+
+$ docker ps
+
+List all containers with docker ls --all
+
+$ docker container ls --all
+
+List all containers matching a conditions with docker ls --filter {key}={value}
+
+$ docker container ls --filter 'name=red1'
+
+Show container log output with docker logs --follow {container}
+
+$ docker run --name bb busybox sh -c "$(echo date)"  --> Print current datetime
+
+$ dockerlogs --follow bb   --> Print what bb container printed
+
+
+
+## Running Containers
+
+Run a container with docker run {image}
+
+$ docker run hello-world  --> Runs a test container to check your installation works
+
+Run a container then use it to run a command with docker run {image} {command}
+
+$ docker run python python -c "print('Python in Docker')"  --> Run Python & print text
+
+$ docker run rocker/r-base r -e "print(lm(disc`speed, cars))" --> Run R & print a model
+
+Run a container interactively with docker run --interactive --tty
+
+$ docker run --interactive --tty rocker/r-base  --> Run R interactively
+
+Run a container, and remove it once you've finished with docker run --rm
+
+$ docker run --rm mysql --> Run MySQL, then clean up
+
+Run an image in the background with docker run --detach
+
+$ docker run --detach postgres
+
+Run an image, assigning a name, with docker --name {name} run
+
+$ docker run --name red1 redis --> Run redis, naming the container as red1
+
+Run an image as a user with docker run --user {username}
+
+$ docker run --user doctordocker mongo
+
 
 ### After modify your python script build again
 
