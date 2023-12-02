@@ -101,7 +101,23 @@ CMD ["python", "./app/main.py"]       < command >  ["< executable >", "< param >
 CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 </pre>
 --------------------------------------------------------
-# RUN = pull + create + star
+# RUN = pull + create + start
+
+- $ docker pull python:3.9
+
+- $ docker create --name < name_container > python:3.9
+
+- $ docker start < name_container >
+
+$ docker run -it --name < name_container > python:3.9 /bin/bash
+
+or case MySQL
+
+$ docker run -it --name < name_container > -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
+
+$ docker exec -it < name_container > /bin/bash
+
+- $ docker container stop < name_container >
 
 ## Getting Help
 Terminal:
@@ -125,6 +141,8 @@ Get help on Docker command usage with docker {command} --help
 $ docker run --help
 
 ## Building Images
+
+$ docker image ls
 
 Build an image with docker build {path}
 
@@ -222,6 +240,42 @@ Run an image as a user with docker run --user {username}
 
 $ docker run --user doctordocker mongo
 
+## Creating a Network
+
+$ docker network ls
+
+$ docker network --help
+
+$ docker network create my_app_net   < network_name >
+
+$ docker network inspect my_app_net
+
+$ docker container run -d --name <name_container> --network < network_nema > nginx
+
+$ docker container run -d --name new_nginx --network my_app_net nginx
+
+-------
+$ docker network connect < network_name > < name_container > (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
+
+Connect a container to a network when it starts
+$ docker network connect my_app_net db
+(-------)
+
+$ docker network inspect < network_name >
+
+$ docker container inspect < name_container >
+
+$ docker network disconnect <network> <container>   (Disconnect a Container to a Network)
+
+$ docker network disconnect bridge db 
+
+$ docker network disconnect bridge webhost
+
+$ docker network disconnect bridge proxy
+
+$ docker network ls ( active only )
+
+$ docker network ls -a  (all = active+stopped)
 
 ### After modify your python script build again
 
