@@ -10,6 +10,7 @@ It will create a virtual environment called venv
 
 ## Activate venv
 ``.\venv\Scripts\activate``
+
 ``conda activate <venv_name>``
 
 ## Intall packages
