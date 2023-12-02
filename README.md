@@ -326,17 +326,11 @@ $ docker run --user doctordocker mongo
 $ docker run
 
 - --rm remove container automatically after it exits
-- 
 - -it connect the container to terminal
-- 
 - --name web name the container
-- 
 - -p 5000:80 expose port 5000 externally and map to port 80
-- 
 - -v ~/dev:/code create a host mapped volume inside the container
-- 
 - alpine:3.4 the image from which the container is instantiated
-- 
 - /bin/sh the command to run inside the container
 
 Stop a running container through SIGTERM
