@@ -9,7 +9,7 @@ https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/
 > pip install virtualenv
 
 Create a venv:
-> python -m venv [venv_name]
+> python -m venv <venv_name>
 
 To activate:
 > myenv\Scripts\activate
@@ -31,9 +31,9 @@ CREATE A VIRTUAL ENVIRONMENT USING CONDA
 https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 
 Create venv:
-> conda create --name [myenv]
+> conda create --name <venv_name>
 > 
-> conda create -n [myenv] python=3.9
+> conda create -n <venv_name> python=3.9
 
 To create an environment with a specific version of Python and multiple packages:
 > conda create -n myenv python=3.9 scipy=0.17.3 astroid babel
@@ -44,7 +44,7 @@ Verify that the new environment was installed correctly:
 You can also use:
 > conda info --envs
 
-> conda activate [venv_name]
+> conda activate <venv_name>
 > 
 > conda deactivate
 
@@ -113,19 +113,19 @@ CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 - $ docker pull python --> last version
 
-- $ docker create --name < container_name > python:3.9
+- $ docker create --name <container_name> python:3.9
 
-- $ docker start < container_name >
+- $ docker start <container_name>
 
-$ docker run -it --name < container_name > python:3.9 /bin/bash
+$ docker run -it --name <container_name> python:3.9 /bin/bash
 
 or case MySQL
 
-$ docker run -it --name < container_name > -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
+$ docker run -it --name <container_name> -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
 
-$ docker exec -it < container_name > /bin/bash
+$ docker exec -it <container_name> /bin/bash
 
-- $ docker container stop < container_name >
+- $ docker container stop <container_name>
 
 ## Getting Help
 Terminal:
@@ -359,25 +359,25 @@ $ docker network ls
 
 $ docker network --help
 
-$ docker network create my_app_net   < network_name >
+$ docker network create my_app_net   <network_name>
 
 $ docker network inspect my_app_net
 
-$ docker container run -d --name < container_name > --network < network_name > nginx
+$ docker container run -d --name <container_name> --network <network_name> nginx
 
 $ docker container run -d --name new_nginx --network my_app_net nginx
 
 ## Connect a container to a network started
 
-$ docker network connect < network_name > < container_name > (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
+$ docker network connect <network_name> <container_name> (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
 
 $ docker network connect my_app_net db
 
-$ docker network inspect < network_name >
+$ docker network inspect <network_name>
 
-$ docker container inspect < container_name >
+$ docker container inspect <container_name>
 
-$ docker network disconnect < network_name > < container_name >   (Disconnect a Container to a Network)
+$ docker network disconnect <network_name> <container_name>   (Disconnect a Container to a Network)
 
 $ docker network disconnect bridge db 
 
