@@ -427,4 +427,10 @@ https://www.youtube.com/watch?v=bi0cKgmRuiA&t=695s
 
 
 ![Docker CheatSheet](./Docker_cheat_sheet.png)
-![Image PDF](./cheat-sheet-v2.pdf)
+
+### Download Docker Cheat Sheets
+
+![Docker Cheat Sheet](./docker_cheat_sheet.pdf)
+
+![Docker Swarm](./docker-swarm.pdf)
+
