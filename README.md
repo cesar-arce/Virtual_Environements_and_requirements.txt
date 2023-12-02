@@ -105,6 +105,8 @@ CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 - $ docker pull python:3.9
 
+- $ docker pull python --> last version
+
 - $ docker create --name < name_container > python:3.9
 
 - $ docker start < name_container >
