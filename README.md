@@ -69,7 +69,7 @@ ALTERNATIVELY - Option 2
 
 > pip freeze > requirements.txt
 >
-> pip list --format=freeze > requirements.txt
+> pip list --format=freeze > requirements.txt (recommended)
 
 INSTALL "requirements.txt" FILE IN A PROJECT
 
@@ -107,19 +107,19 @@ CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 - $ docker pull python --> last version
 
-- $ docker create --name < name_container > python:3.9
+- $ docker create --name < container_name > python:3.9
 
-- $ docker start < name_container >
+- $ docker start < container_name >
 
-$ docker run -it --name < name_container > python:3.9 /bin/bash
+$ docker run -it --name < container_name > python:3.9 /bin/bash
 
 or case MySQL
 
-$ docker run -it --name < name_container > -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
+$ docker run -it --name < container_name > -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
 
-$ docker exec -it < name_container > /bin/bash
+$ docker exec -it < container_name > /bin/bash
 
-- $ docker container stop < name_container >
+- $ docker container stop < container_name >
 
 ## Getting Help
 Terminal:
@@ -142,7 +142,7 @@ Get help on Docker command usage with docker {command} --help
 
 $ docker run --help
 
-- (-t = --tty, -i = --interactive, -d = --detashed, -e = --env, -p = --publish, -rm = --remove)
+- (-t = --tty, -i = --interactive, -d = --detashed, -e = --env, -p = --publish, -rm = --remove, -a = -all)
 
 ## Building Images
 
@@ -254,12 +254,12 @@ $ docker network create my_app_net   < network_name >
 
 $ docker network inspect my_app_net
 
-$ docker container run -d --name <name_container> --network < network_nema > nginx
+$ docker container run -d --name < container_name > --network < network_name > nginx
 
 $ docker container run -d --name new_nginx --network my_app_net nginx
 
 -------
-$ docker network connect < network_name > < name_container > (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
+$ docker network connect < network_name > < container_name > (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
 
 Connect a container to a network when it starts
 $ docker network connect my_app_net db
@@ -267,9 +267,9 @@ $ docker network connect my_app_net db
 
 $ docker network inspect < network_name >
 
-$ docker container inspect < name_container >
+$ docker container inspect < container_name >
 
-$ docker network disconnect <network> <container>   (Disconnect a Container to a Network)
+$ docker network disconnect < network_name > < container_name >   (Disconnect a Container to a Network)
 
 $ docker network disconnect bridge db 
 
@@ -279,7 +279,7 @@ $ docker network disconnect bridge proxy
 
 $ docker network ls ( active only )
 
-$ docker network ls -a  (all = active+stopped)
+$ docker network ls -a  (-all = active+stopped)
 
 ### After modify your python script build again
 
