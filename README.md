@@ -176,6 +176,10 @@ $ docker run -it <image_name> /bin/bash
 
 > python3 print.py
 
+Hello World!
+
+> cat print.py
+
 print('Hello World!')
 
 > exit
