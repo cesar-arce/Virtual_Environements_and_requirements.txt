@@ -89,9 +89,16 @@ DOCKERS --> Dokerfile (in the root) same place as requirements.txt
 <pre>
 FROM python:3.8                      < image >
 FROM python
+FROM ubuntu:latest
+                                       
+RUN pip install -r requirements.txt   < command > ["< executable >", "< param 1 >", "< param 2 >"] 
+RUN pip install request pandas others....
+RUN apt update
+RUN apt install python3 -y
 
 WORKDIR /fastapi-app                 < path to working directory >
 WORKDIR c:\\windows\
+WORKDIR D:/Docker_Mastery/...
 
 ADD main.py .                        < source > < destination > 
 ADD test1.txt c:\temp\               ["< source >", "< destination >"] -> destination includes white space
@@ -99,11 +106,10 @@ ADD test1.txt c:\temp\               ["< source >", "< destination >"] -> destin
 COPY requirements.txt .               (Libraries)
 COPY ./app ./app                      < source > < destination >  
 COPY config* c:/temp/                 ["< source >", "< destination >"] -> destination includes white space
-                                        
-RUN pip install -r requirements.txt   < command > ["< executable >", "< param 1 >", "< param 2 >"] 
-RUN pip install request pandas others....
+COPY print.py ./
 
 CMD ["python", "./app/main.py"]       < command >  ["< executable >", "< param >"]
+CMD ["python3", "./print.py"]
 CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 </pre>
 --------------------------------------------------------
@@ -164,7 +170,19 @@ $ docker image ls
 
 Build an Image from a Dockerfile
 
-$ docker build -t <image_name> 
+$ docker build -t <image_name> .
+
+$ docker run -it <image_name> /bin/bash
+
+# python3 print.py
+
+print('Hello World!')
+
+# exit
+
+> docker run <image_name>
+
+Hello World!
 
 Build an image from the Dockerfile in the current directory and tag the image
 
