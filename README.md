@@ -98,7 +98,7 @@ RUN apt install python3 -y
 
 WORKDIR /fastapi-app                 < path to working directory >
 WORKDIR c:\\windows\
-WORKDIR D:/Docker_Mastery/...
+WORKDIR D:/Users/...
 
 ADD main.py .                        < source > < destination > 
 ADD test1.txt c:\temp\               ["< source >", "< destination >"] -> destination includes white space
@@ -106,10 +106,10 @@ ADD test1.txt c:\temp\               ["< source >", "< destination >"] -> destin
 COPY requirements.txt .               (Libraries)
 COPY ./app ./app                      < source > < destination >  
 COPY config* c:/temp/                 ["< source >", "< destination >"] -> destination includes white space
-COPY print.py ./
+COPY main.py ./
 
 CMD ["python", "./app/main.py"]       < command >  ["< executable >", "< param >"]
-CMD ["python3", "./print.py"]
+CMD ["python3", "./main.py"]
 CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 </pre>
 --------------------------------------------------------
