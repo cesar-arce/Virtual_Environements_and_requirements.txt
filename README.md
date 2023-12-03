@@ -174,11 +174,11 @@ $ docker build -t <image_name> .
 
 $ docker run -it <image_name> /bin/bash
 
-# python3 print.py
+> python3 print.py
 
 print('Hello World!')
 
-# exit
+> exit
 
 > docker run <image_name>
 
