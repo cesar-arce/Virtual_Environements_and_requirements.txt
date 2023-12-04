@@ -431,10 +431,18 @@ Stop one or more running containers
 docker stop <container_name>
 ```
 ## Docker's Default Networks
-Three network drivers/interfaces with different use cases are automatically created for you when you install Docker:
+Network drivers/interfaces with different use cases are automatically created for you when you install Docker:
 
 #### Bridge (docker0)
 A container connects to this network when it starts running without specifying a network. Containers connected to the bridge network are given an internal IP address to communicate with each other.
+
+Bridge networking is Docker's default mode. When a container is built without specifying a network driver, it's automatically attached to the bridge network, known for its ease of creation, management, and troubleshooting. Each container on this network receives a unique IP address, typically from a default range set by Docker. These containers can communicate with one another using their private IP addresses. Although bridged to the host system, allowing them to communicate with the LAN and internet, they aren't visible as physical devices on the LAN. External communication is routed via Network Address Translation (NAT) on the host. To make containers externally accessible, port mapping is Important. For example, a container running a web service on port 80, situated within the bridge network's private subnet, requires a mapping from a host system port (e.g., 8000) to the container's port 80. This enables external traffic to access the service.
+
+You can specify a container to create in a bridge network by executing the following command:
+```
+docker run --network=bridge <image_name>
+```
+
 ```
 docker network inspect bridge
 ```
@@ -449,6 +457,16 @@ docker run --network=my-custom-network nginx
 #### Host
 A container shares the networking namespace of the host when using the host network mode. As a result, the host's IP address and port will be used by the container to isolate and execute the process directly on the host.
 
+In Host Networking, the host drivers utilize the networking capabilities of the host machine. This mode removes the network isolation between the host computer (on which Docker is running) and the container. With Host Networking, Network Address Translation (NAT) is not required, and this simplifies the management of multiple ports simultaneously.
+
+Let's suppose there is a scenario where port 8000 is published by a container using the host network; that port will also be published on the host system. As a result, the application running in a container that uses host networking and binds to port 80 is accessible via port 80 of the host's IP address. When running the container, we can use the --network flag with the value set to host in order to create a Docker container that uses the host network mode.
+```
+docker run --network=host -d <image_name>
+```
+Here's how we can create an Nginx container using host networking:
+```
+docker run --network=host -d nginx
+```
 ### Overlay
 For multi-host network communication, like with Docker Swarm, the Overlay network can be utilized because it is a distributed network layer that makes it easier for nodes and services to communicate with one another. Overlay networking enables connected containers to communicate throughout the swarm securely and efficiently. Swarm services or standalone containers may utilize overlay networks built and controlled by the swarm manager.
 
