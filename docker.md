@@ -430,6 +430,20 @@ Stop one or more running containers
 ```
 docker stop <container_name>
 ```
+## Docker's Default Networks
+Three network drivers/interfaces with different use cases are automatically created for you when you install Docker:
+
+#### Bridge (docker0)
+A container connects to this network when it starts running without specifying a network. Containers connected to the bridge network are given an internal IP address to communicate with each other.
+
+#### Host
+A container shares the networking namespace of the host when using the host network mode. As a result, the host's IP address and port will be used by the container to isolate and execute the process directly on the host.
+
+#### None
+As the name indicates, this mode disables the networking stack of the container. The host, other containers, and external systems are all inaccessible to containers running without network. It becomes useful when you do not require any network connectivity or complete isolation.
+```
+docker network inspect bridge
+```
 
 ## Creating a Network
 Creates a new network. The DRIVER accepts bridge or overlay which are the built-in network drivers. If you have installed a third party or your own custom network driver you can specify that DRIVER here also. If you don't specify the --driver option, the command automatically creates a bridge network for you. When you install Docker Engine it creates a bridge network automatically. This network corresponds to the docker0 bridge that Engine has traditionally relied on. When you launch a new container with docker run it automatically connects to this bridge network. You cannot remove this default bridge network, but you can create new ones using the network create command.
@@ -455,6 +469,10 @@ docker network create --scope=swarm --attachable -d overlay my-multihost-network
 
 ```
 docker network inspect my_app_net
+```
+
+```
+docker run --network=host -d [Image_Name]
 ```
 
 ```
