@@ -382,7 +382,7 @@ Examples:
 ```
 docker run --interactive --tty python:3.9
 ```
-(-e = --environement)
+(-e = --environement, -d = --detach)
 ```
 docker run --name <container_name> -d -e MYSQL_RANDOM_ROOT_PASSWORD=true -d mysql/mysql -server:5.7 mysql
 ```
@@ -434,7 +434,7 @@ docker logs --tail 100 web
 ```
 
 Stop one or more running containers
-> docker stop [OPTIONS] CONTAINER [CONTAINER...]
+> docker stop <options> CONTAINER <container_name>
 ```
 docker stop <container_name>
 ```
@@ -495,7 +495,7 @@ The Macvlan network driver in Docker fills the gap between traditional network s
 
 We can create a Macvlan Network by using the following command:
 ```
-docker network create -d macvlan [options] [name_of_network]
+docker network create -d macvlan <options> <network_name>
 ```
 
 ```
@@ -532,7 +532,7 @@ docker network inspect my_app_net
 ```
 
 ```
-docker run --network=host -d [Image_Name]
+docker run --network=host -d <image_name>
 ```
 
 ```
