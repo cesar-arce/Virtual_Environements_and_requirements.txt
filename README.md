@@ -37,7 +37,9 @@ python -m venv c:\path\to\myenv
 CREATE A VIRTUAL ENVIRONMENT USING CONDA
 ------------------------------------------------------
 https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-
+```
+conda update --all
+```
 Create venv:
 ```
 conda create --name <venv_name>
@@ -59,6 +61,10 @@ You can also use:
 ```
 conda info --envs
 ```
+conda rename Command
+```
+conda rename -n <env-oldname> <env-newname>
+```
 
 ```
 conda activate <venv_name>
@@ -66,6 +72,10 @@ conda activate <venv_name>
 
 ```
 conda deactivate
+```
+Remove venv:
+```
+conda env remove -n <venv_name> --all
 ```
 
 # Step 2 -Create your "requirements.txt" file 
