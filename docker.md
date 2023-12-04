@@ -435,15 +435,49 @@ Three network drivers/interfaces with different use cases are automatically crea
 
 #### Bridge (docker0)
 A container connects to this network when it starts running without specifying a network. Containers connected to the bridge network are given an internal IP address to communicate with each other.
-
-#### Host
-A container shares the networking namespace of the host when using the host network mode. As a result, the host's IP address and port will be used by the container to isolate and execute the process directly on the host.
-
-#### None
-As the name indicates, this mode disables the networking stack of the container. The host, other containers, and external systems are all inaccessible to containers running without network. It becomes useful when you do not require any network connectivity or complete isolation.
 ```
 docker network inspect bridge
 ```
+
+```
+docker network create -d bridge my-custom-network
+```
+
+```
+docker run --network=my-custom-network nginx
+```
+#### Host
+A container shares the networking namespace of the host when using the host network mode. As a result, the host's IP address and port will be used by the container to isolate and execute the process directly on the host.
+
+### Overlay
+For multi-host network communication, like with Docker Swarm, the Overlay network can be utilized because it is a distributed network layer that makes it easier for nodes and services to communicate with one another. Overlay networking enables connected containers to communicate throughout the swarm securely and efficiently. Swarm services or standalone containers may utilize overlay networks built and controlled by the swarm manager.
+
+You can either initialize your Docker daemon as a swarm manager using docker swarm init or join it to an existing swarm using docker swarm join to build an overlay network for use with swarm services. Let's suppose we want to create/setup a custom overlay; for that purpose, we can use the following command:
+```
+docker network create -d overlay <network_name>
+```
+You can connect Docker services to the overlay network once it has been set up, enabling service-to-service communication among multiple Swarm nodes. You can use the command below with the '—network' option to build a service and attach it to the overlay network:
+```
+docker service create --network=<network_name> <service_options> <image_name>
+```
+Let's say that we want to attach the 'nginx' service to 'my_network'. In order to achieve that purpose, we can replace <network_name> with 'my_network' and <image_name> with 'nginx' in the command above. We can also add <service_options> like '—name' or '-p' to assign the name or port to the service while attaching it to the network.
+```
+docker service create --name nginx-service --network my_network -p 80:80 nginx
+```
+### Macvlan
+The Macvlan network driver in Docker fills the gap between traditional network structures and container networking. Each container on the Macvlan network is given a unique MAC address, which makes it seem like an actual device on your network, much like a traditional virtual machine. The traffic is subsequently directed to containers based on their MAC addresses by the Docker daemon. Additionally, you will be able to assign an IP address from the same subnet as the Docker host.
+
+We can create a Macvlan Network by using the following command:
+```
+docker network create -d macvlan [options] [name_of_network]
+```
+
+```
+docker network create -d macvlan --subnet=192.168.0.0/24 --gateway=192.168.0.1 -o parent=eth0 demo-macvlan
+```
+
+#### None
+As the name indicates, this mode disables the networking stack of the container. The host, other containers, and external systems are all inaccessible to containers running without network. It becomes useful when you do not require any network connectivity or complete isolation.
 
 ## Creating a Network
 Creates a new network. The DRIVER accepts bridge or overlay which are the built-in network drivers. If you have installed a third party or your own custom network driver you can specify that DRIVER here also. If you don't specify the --driver option, the command automatically creates a bridge network for you. When you install Docker Engine it creates a bridge network automatically. This network corresponds to the docker0 bridge that Engine has traditionally relied on. When you launch a new container with docker run it automatically connects to this bridge network. You cannot remove this default bridge network, but you can create new ones using the network create command.
