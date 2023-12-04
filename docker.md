@@ -416,6 +416,7 @@ docker stop <container_name>
 ```
 
 ## Creating a Network
+Creates a new network. The DRIVER accepts bridge or overlay which are the built-in network drivers. If you have installed a third party or your own custom network driver you can specify that DRIVER here also. If you don't specify the --driver option, the command automatically creates a bridge network for you. When you install Docker Engine it creates a bridge network automatically. This network corresponds to the docker0 bridge that Engine has traditionally relied on. When you launch a new container with docker run it automatically connects to this bridge network. You cannot remove this default bridge network, but you can create new ones using the network create command.
 ```
 docker network ls
 ```
@@ -426,6 +427,14 @@ docker network --help
 
 ```
 docker network create my_app_net <network_name>
+```
+
+```
+docker network create -d bridge my-bridge-network
+```
+Once you have enabled swarm mode, you can create a swarm-scoped overlay network:
+```
+docker network create --scope=swarm --attachable -d overlay my-multihost-network
 ```
 
 ```
@@ -441,6 +450,7 @@ docker container run -d --name new_nginx --network my_app_net nginx
 ```
 
 ## Connect a container to a network started
+When you start a container, use the --network flag to connect it to a network. This example adds the busybox container to the mynet network:
 (Connect "Id" Network of  "Driver": "bridge", 8facc8c8429a to a Container) 
 ```
 docker network connect <network_name> <container_name> 
@@ -448,6 +458,10 @@ docker network connect <network_name> <container_name>
 
 ```
 docker network connect my_app_net db
+```
+
+```
+docker run -itd --network=mynet busybox
 ```
 
 ```
@@ -480,6 +494,30 @@ docker network ls
  (--all = active + stopped networks)
 ```
 docker network ls -a 
+```
+### Run services on predefined networks
+You can create services on the predefined docker networks bridge and host.
+```
+docker service create --name my-service \
+  --network host \
+  --replicas 2 \
+  busybox top
+```
+### Swarm networks with local scope drivers
+You can create a swarm network with local scope network drivers. You do so by promoting the network scope to swarm during the creation of the network. You will then be able to use this network when creating services.
+```
+docker network create -d bridge \
+  --scope swarm \
+  --attachable \
+  swarm-network
+```
+### docker network disconnect
+```
+docker network disconnect [OPTIONS] NETWORK CONTAINER
+```
+(--force	-f		Force the container to disconnect from a network)
+```
+docker network disconnect multi-host-network container1
 ```
 
 ## Docker Hub
