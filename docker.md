@@ -384,7 +384,15 @@ docker run --interactive --tty python:3.9
 ```
 (-e = --environement)
 ```
-docker run --name <container_name> -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
+docker run --name <container_name> -d -e MYSQL_RANDOM_ROOT_PASSWORD=true -d mysql/mysql -server:5.7 mysql
+```
+
+```
+docker container run --detach --name <container_name> -p 3306:3306 --env MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+```
+
+```
+docker container logs db | grep PASSWORD
 ```
 
 ```
