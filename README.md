@@ -444,8 +444,9 @@ docker container stats
 
 
 Run a container with docker run {image}
+--> Runs a test container to check your installation works
 ```
-docker run hello-world  --> Runs a test container to check your installation works
+docker run hello-world  
 ```
 Run a container then use it to run a command with docker run {image} {command}
   --> Run Python & print text
