@@ -108,9 +108,9 @@ ALTERNATIVELY - Option 2
 ```
 pip freeze > requirements.txt
 ```
-
+ (recommended)
 ```
-pip list --format=freeze > requirements.txt (recommended)
+pip list --format=freeze > requirements.txt
 ```
 
 INSTALL "requirements.txt" FILE IN A PROJECT
