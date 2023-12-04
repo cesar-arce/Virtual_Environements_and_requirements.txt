@@ -254,8 +254,9 @@ List all containers matching a conditions with docker ls --filter {key}={value}
 docker container ls --filter 'name=red1'
 ```
 Show container log output with docker logs --follow {container}
+  --> Print current datetime
 ```
-docker run --name bb busybox sh -c "$(echo date)"  --> Print current datetime
+docker run --name bb busybox sh -c "$(echo date)"
 ```
    --> Print what bb container printed
 ```
@@ -375,7 +376,7 @@ docker exec -it <container_name> /bin/bash
 ```
 
 ```
-docker run --name <container_name> -e POSTGRES_PASSWORD=123 -p 5432:5432 -d postgres
+docker run --name <container_name> -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres
 ```
 
 ```
@@ -472,13 +473,13 @@ docker network disconnect bridge webhost
 ```
 docker network disconnect bridge proxy
 ```
-
+ ( active only )
 ```
-docker network ls ( active only )
+docker network ls
 ```
-
+ (--all = active+stopped)
 ```
-docker network ls -a  (--all = active+stopped)
+docker network ls -a 
 ```
 
 ## Docker Hub
