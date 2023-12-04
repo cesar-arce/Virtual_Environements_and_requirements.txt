@@ -257,9 +257,9 @@ Show container log output with docker logs --follow {container}
 ```
 docker run --name bb busybox sh -c "$(echo date)"  --> Print current datetime
 ```
-
+   --> Print what bb container printed
 ```
-dockerlogs --follow bb   --> Print what bb container printed
+docker logs --follow bb
 ```
 
 Running docker stats on all running containers against a Linux daemon.
@@ -312,10 +312,10 @@ View resource usage stats
 docker container stats
 ```
 
-
+  --> Runs a test container to check your installation works
 Run a container with docker run {image}
 ```
-docker run hello-world  --> Runs a test container to check your installation works
+docker run hello-world
 ```
 Run a container then use it to run a command with docker run {image} {command}
   --> Run Python & print text
@@ -332,16 +332,18 @@ Run a container interactively with docker run --interactive --tty
 docker run --interactive --tty rocker/r-base  
 ```
 Run a container, and remove it once you've finished with docker run --rm
+ --> Run MySQL, then clean up
 ```
-docker run --rm mysql --> Run MySQL, then clean up
+docker run --rm mysql
 ```
 Run an image in the background with docker run --detach
 ```
 docker run --detach postgres
 ```
 Run an image, assigning a name, with docker --name {name} run
+ --> Run redis, naming the container as red1
 ```
-docker run --name red1 redis --> Run redis, naming the container as red1
+docker run --name red1 redis
 ```
 Run an image as a user with docker run --user {username}
 ```
@@ -358,6 +360,32 @@ docker run
 - -v ~/dev:/code create a host mapped volume inside the container
 - alpine:3.4 the image from which the container is instantiated
 - /bin/sh the command to run inside the container
+
+Examples:
+```
+docker run --interactive --tty python:3.9
+```
+(-e = --environement)
+```
+docker run --name <container_name> -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
+```
+
+```
+docker exec -it <container_name> /bin/bash
+```
+
+```
+docker run --name <container_name> -e POSTGRES_PASSWORD=123 -p 5432:5432 -d postgres
+```
+
+```
+docker run -pp 27017:27017 --name <container_name> mongo
+```
+
+```
+docker run -d -p 8800:80 <container_name> apache <image_name>
+```
+
 
 Stop a running container through SIGTERM
 ```
