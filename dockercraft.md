@@ -1,4 +1,4 @@
 # Dockercraft
 
-info: https://github.com/docker/dockercraft
+source: https://github.com/docker/dockercraft
 
