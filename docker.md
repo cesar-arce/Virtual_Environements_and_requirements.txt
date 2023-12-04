@@ -477,7 +477,7 @@ docker network disconnect bridge proxy
 ```
 docker network ls
 ```
- (--all = active+stopped)
+ (--all = active + stopped networks)
 ```
 docker network ls -a 
 ```
