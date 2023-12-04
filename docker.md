@@ -476,7 +476,8 @@ Here's how we can create an Nginx container using host networking:
 docker run --network=host -d nginx
 ```
 ### Overlay
-For multi-host network communication, like with Docker Swarm, the Overlay network can be utilized because it is a distributed network layer that makes it easier for nodes and services to communicate with one another. Overlay networking enables connected containers to communicate throughout the swarm securely and efficiently. Swarm services or standalone containers may utilize overlay networks built and controlled by the swarm manager.
+For multi-host network communication, like with Docker Swarm, the Overlay network can be utilized because it is a distributed network layer that makes it easier for nodes and services to communicate with one another. 
+Overlay networking enables connected containers to communicate throughout the swarm securely and efficiently. Swarm services or standalone containers may utilize overlay networks built and controlled by the swarm manager.
 
 You can either initialize your Docker daemon as a swarm manager using docker swarm init or join it to an existing swarm using docker swarm join to build an overlay network for use with swarm services. Let's suppose we want to create/setup a custom overlay; for that purpose, we can use the following command:
 ```
