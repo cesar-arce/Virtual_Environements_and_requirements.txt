@@ -139,6 +139,11 @@ docker run <image_name>
 ```
 Hello World!
 
+### docker image history
+```
+docker image history [OPTIONS] IMAGE
+```
+
 ### Build Images
 
 Build an image with docker build {path}
