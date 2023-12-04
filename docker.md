@@ -148,6 +148,10 @@ docker build .
 
 Build an Image from a Dockerfile
 ```
+docker image build [OPTIONS] PATH | URL | -
+```
+
+```
 docker build -t <image_name> .
 ```
 To Update modifications run
