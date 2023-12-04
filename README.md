@@ -383,12 +383,13 @@ List all containers matching a conditions with docker ls --filter {key}={value}
 docker container ls --filter 'name=red1'
 ```
 Show container log output with docker logs --follow {container}
+  --> Print current datetime
 ```
-docker run --name bb busybox sh -c "$(echo date)"  --> Print current datetime
+docker run --name bb busybox sh -c "$(echo date)"
 ```
-
+  --> Print what bb container printed
 ```
-dockerlogs --follow bb   --> Print what bb container printed
+dockerlogs --follow bb   
 ```
 
 Running docker stats on all running containers against a Linux daemon.
