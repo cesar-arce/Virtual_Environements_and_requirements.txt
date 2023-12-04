@@ -462,16 +462,18 @@ Run a container interactively with docker run --interactive --tty
 docker run --interactive --tty rocker/r-base  
 ```
 Run a container, and remove it once you've finished with docker run --rm
+ --> Run MySQL, then clean up
 ```
-docker run --rm mysql --> Run MySQL, then clean up
+docker run --rm mysql 
 ```
 Run an image in the background with docker run --detach
 ```
 docker run --detach postgres
 ```
 Run an image, assigning a name, with docker --name {name} run
+--> Run redis, naming the container as red1
 ```
-docker run --name red1 redis --> Run redis, naming the container as red1
+docker run --name red1 redis
 ```
 Run an image as a user with docker run --user {username}
 ```
@@ -605,9 +607,9 @@ docker network disconnect bridge proxy
 ```
 docker network ls ( active only )
 ```
-
+(--all = active+stopped)
 ```
-docker network ls -a  (--all = active+stopped)
+docker network ls -a  
 ```
 
 ## Docker Hub
