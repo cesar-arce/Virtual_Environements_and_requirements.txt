@@ -5,6 +5,13 @@ The isolation and security allows you to run many containers simultaneously on a
 Containers are lightweight and contain everything needed to run the application, so you do not need to rely on what is currently installed on the host. 
 You can easily share containers while you work, and be sure that everyone you share with gets the same container that works in the same way.
 
+## Dockerfile reference
+Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. This page describes the commands you can use in a Dockerfile.
+
+Docker runs instructions in a Dockerfile in order. A Dockerfile must begin with a FROM instruction. This may be after parser directives, comments, and globally scoped ARGs. The FROM instruction specifies the Parent Image from which you are building. FROM may only be preceded by one or more ARG instructions, which declare arguments that are used in FROM lines in the Dockerfile.
+
+Docker treats lines that begin with # as a comment, unless the line is a valid parser directive. A # marker anywhere else in a line is treated as an argument. This allows statements like:
+
 ***********************************************************
 DOCKERS --> Dokerfile (in the root) same place as requirements.txt
 
