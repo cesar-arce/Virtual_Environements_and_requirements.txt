@@ -1,38 +1,124 @@
-# Python venv virtual environment Cheat_Sheet
-## Create a venv
-To create a virtual environment, go to the root of your project and run
+# Python venv virtual environment Cheat_Sheet and requirements.txt
 
-``python -m venv <venv_name>``
+# Step 1 - Working in VENV (create, activate, deactivate)
+***********************************************************
+CREATE A VIRTUAL ENVIRONMENT VENV
 
-``conda create -n <venv_name> python=3.9``
+https://docs.python.org/3/library/venv.html
+https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/
+```
+pip install virtualenv
+```
+Create a venv:
+```
+python -m venv <venv_name>
+```
+To activate:
+```
+myenv\Scripts\activate
+```
 
-It will create a virtual environment called venv
+```
+. myenv/bin/activate
+```
 
-## Activate venv
-``.\venv\Scripts\activate``
+```
+.envs\Scripts\activate.bat
+```
 
-``conda activate <venv_name>``
+```
+deactivate
+```
+venv — Creation of virtual environments
 
-## Intall packages
-``pip install jupyter matplotlib numpy pandas scipy scikit-learn``
+https://docs.python.org/3/library/venv.html
+```
+python -m venv c:\path\to\myenv
+```
+CREATE A VIRTUAL ENVIRONMENT USING CONDA
+------------------------------------------------------
+https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+```
+conda update --all
+```
+Create venv:
+```
+conda create --name <venv_name>
+```
 
+```
+conda create -n <venv_name> python=3.9
+```
+
+To create an environment with a specific version of Python and multiple packages:
+```
+conda create -n myenv python=3.9 scipy=0.17.3 astroid babel
+```
+Verify that the new environment was installed correctly:
+```
+conda env list
+```
+You can also use:
+```
+conda info --envs
+```
+Conda rename venv
+```
+conda rename -n <env-oldname> <env-newname>
+```
+
+```
+conda activate <venv_name>
+```
+
+```
+conda deactivate
+```
+Remove venv:
+```
+conda env remove -n <venv_name> --all
+```
+
+# Step 2 -Create your "requirements.txt" file 
+***********************************************************
+```
+pip list
+```
+TO CREATE FILE - Option 1
+```
+pip install pipreqs
+```
+
+```
+pipreqs
+```
 or
+```
+pipreqs --encoding=utf-8 --force
+```
 
-``python -m pip install -U jupyter matplotlib numpy pandas scipy scikit-learn``
+```
+pipreqs --encoding=iso-8859-1
+```
 
-## Create requirements.txt
-``pip freeze > requirements.txt``
+```
+pipreqs --encoding=utf8 C:\Users\root\Desktop\resumes
+```
 
-``pip list --format=freeze > requirements.txt``
+ALTERNATIVELY - Option 2
+```
+pip freeze > requirements.txt
+```
 
-## Deactivate venv
-``deactivate``
+```
+pip list --format=freeze > requirements.txt (recommended)
+```
 
-``conda deactivate``
+INSTALL "requirements.txt" FILE IN A PROJECT
 
-## Install packages from requirements.txt
-``pip install -r requirements.txt``
-
+```
+pip install -r "requirements.txt"
+```
 
 
 ![Python venv Cheat Sheet](./python-virtual-environments.pdf)
