@@ -37,6 +37,7 @@ python -m venv c:\path\to\myenv
 CREATE A VIRTUAL ENVIRONMENT USING CONDA
 ------------------------------------------------------
 https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
 Update CONDA version
 ```
 conda update --all
