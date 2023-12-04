@@ -109,14 +109,16 @@ ALTERNATIVELY - Option 2
 pip freeze > requirements.txt
 ```
 
-``
+```
 pip list --format=freeze > requirements.txt (recommended)
 ```
 
 INSTALL "requirements.txt" FILE IN A PROJECT
+
 ```
 pip install -r "requirements.txt"
 ```
+
 
 # Step 3 - # Working with Dockers (Dockerfile, Images, Containers, and Networks)
 
