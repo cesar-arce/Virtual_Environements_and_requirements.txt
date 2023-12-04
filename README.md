@@ -488,6 +488,33 @@ docker run
 - alpine:3.4 the image from which the container is instantiated
 - /bin/sh the command to run inside the container
 
+Examples:
+```
+docker run --interactive --tty python:3.9
+```
+(-e = --environement)
+```
+docker run --name <container_name> -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql -server:5.7 mysql
+```
+
+```
+docker exec -it <container_name> /bin/bash
+```
+
+```
+docker run --name <container_name> -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres
+```
+
+```
+docker run -pp 27017:27017 --name <container_name> mongo
+```
+
+```
+docker run -d -p 8800:80 <container_name> apache <image_name>
+```
+
+
+
 Stop a running container through SIGTERM
 ```
 docker stop web
