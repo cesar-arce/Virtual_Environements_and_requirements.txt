@@ -4,21 +4,35 @@ source: https://github.com/docker/dockercraft
 
 # How to run Dockercraft
 
+1. Install Minecraft: minecraft.net
+
+The Minecraft client hasn't been modified, just get the official release.
+
+2. Pull or build Dockercraft image: (an official image will be available soon)
+
 $ docker pull gaetan/dockercraft
 
-- Using default tag: latest
-- latest: Pulling from gaetan/dockercraft
-- 3d77ce4481b1: Pull complete
-- b305f0073379: Pull complete
-- a8c0c368aa5d: Pull complete
-- 42e3314a1c6e: Pull complete
-- 40153b421620: Pull complete
-- 170d1fd0c3e1: Pull complete
-- ecb35cb9c195: Pull complete
-- 78b011f44828: Pull complete
-- Digest: sha256:5d9f43edf0cbc65863f97b03347210c6d0696eef0c57f36adc974e32a9d7943a
-- Status: Downloaded newer image for gaetan/dockercraft:latest
-- docker.io/gaetan/dockercraft:latest
+or
+
+$ git clone git@github.com:docker/dockercraft.git
+
+$ docker build -t gaetan/dockercraft dockercraft
+
+3.Run Dockercraft container:
+
+docker run -t -i -d -p 25565:25565 \
+-v /var/run/docker.sock:/var/run/docker.sock \
+--name dockercraft \
+gaetan/dockercraft
+Mounting /var/run/docker.sock inside the container is necessary to send requests to the Docker remote API.
+
+The default port for a Minecraft server is 25565, if you prefer a different one: -p <port>:25565
+
+4. Open Minecraft > Multiplayer > Add Server
+
+The server address is the IP of Docker host. No need to specify a port if you used the default one.
+
+If you're using Docker Machine: docker-machine ip <machine_name>
 
 
 
