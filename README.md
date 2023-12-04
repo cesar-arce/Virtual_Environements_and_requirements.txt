@@ -61,7 +61,7 @@ You can also use:
 ```
 conda info --envs
 ```
-Conda rename command
+Conda rename venv
 ```
 conda rename -n <env-oldname> <env-newname>
 ```
