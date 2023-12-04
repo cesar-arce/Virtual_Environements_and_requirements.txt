@@ -45,7 +45,7 @@ conda update --all
 ```
 
 ```
-conda update --all -c conda-forge
+conda update --all -C conda-forge
 ```
 
 Create venv:
